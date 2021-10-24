@@ -1,10 +1,12 @@
 let questionSection = document.getElementById('question');
 let answerSection = document.getElementById("answer");
+let timerSection = document.getElementById("timer");
+let rightWrong = document.getElementById('right-wrong');
 let gameStarted = false;
 let questionCounter = 0;
 let timer = 100;
 
-
+// question objects in an array
 let questions = [
     {
         question: "Arrays in JavaScript can be used to store _____ ?",
@@ -14,7 +16,8 @@ let questions = [
             c: "strings",
             d: "All of the above"
         },
-        correct: this.d
+        correct: this.d,
+        wasAsked: false
     },
 
     {
@@ -25,7 +28,8 @@ let questions = [
             c: "var object = {}"
         },
 
-        correct: this.c
+        correct: this.c,
+        wasAsked: false
     },
 
     {
@@ -37,7 +41,8 @@ let questions = [
             d: "[]"
         },
 
-        correct: this.b
+        correct: this.b,
+        wasAsked: false
     },
 
     {
@@ -48,7 +53,8 @@ let questions = [
             c: "function func() {console.log('Hello world!');}"
         }, 
 
-        correct: this.a
+        correct: this.a,
+        wasAsked: false
     }, 
 
     {
@@ -60,17 +66,20 @@ let questions = [
             d: "Math.floor()"
         },
 
-        correct: this.d
+        correct: this.d,
+        wasAsked: false
     }
 ]
 
 if(gameStarted == false)
-    answerSection.addEventListener('click', startGame);
+    document.getElementById("start-button").addEventListener('click', startGame);
 
 function startGame() {
     gameStarted = true; 
     console.log('game has started');
     game();
+    mainGame();
+    document.getElementById('start-button').remove();
 }
 
 function game() {
@@ -79,16 +88,39 @@ function game() {
         if(timer <= 0) {
             clearInterval(gameTimer);
             endGame();
-        }else {
-            //Write code here
         }
+
+        timerSection.textContent = "time: " + timer;
+        
 
     }, 1000);
 }
 
+function mainGame() {
+    switch (questionCounter) {
+        case 0:
+            questionSection.innerHTML = "<h2>" + questions[0].question + "</h2>";
+            let btnA = document.createElement('button');
+            let btnB = document.createElement("button");
+            let btnC = document.createElement("button");
+            let btnD = document.createElement("button");
+            let btnArr = [btnA, btnB, btnC, btnD];
+            for(let i = 0; i < btnArr.length; i++) {
+                answerSection.appendChild(btnArr[i]);
+            }
+            questionCounter++
+
+            //Add event listeners for each button here until you can find a different way of doing it that is neater.
+            break;
+    
+        default:
+            break;
+    }
+}
+
 function endGame() {
     if(timer <= 0) 
-        questionSection.textContent = "GAME OVER!";
+        questionSection.innerHTML = "<h2>GAME OVER!</h2>";
     else 
         questionSection.textContent = "You completed the quiz! Nice.";
     
