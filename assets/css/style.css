@@ -1,0 +1,17 @@
+body {
+    padding: 30px;
+    margin: 15px;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    width: 50px;
+    height: 45px;
+    border-style: none;
+    border-radius: 15px;
+}
+
+.main-content {
+    justify-content: center;
+}
