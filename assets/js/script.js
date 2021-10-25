@@ -256,6 +256,8 @@ function mainGame() {
     }
 }
 
+// finish up adding the function that allows saving to local storage and also loading from local storage.
+
 function endGame() {
     if(timer <= 0) 
         questionSection.innerHTML = "<h2>GAME OVER!</h2>";
