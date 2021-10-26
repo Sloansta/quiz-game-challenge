@@ -120,20 +120,25 @@ function mainGame() {
                     btnArr[i].textContent = questions[0].answers.c;
                 else 
                     btnArr[i].textContent = questions[0].answers.d;
+                
+                btnArr[i].className = "btn";
             }
             answerSection.addEventListener('click', function listener(e) {
-               if(e.target.textContent == questions[0].answers.d) {
-                   rightWrong.innerHTML = "<h2>Correct!</h2>";
-                   answerSection.removeEventListener('click', listener);
-                   questionCounter++;
-                   mainGame();
-               } else {
-                   rightWrong.innerHTML = "<h2>False!</h2>";
-                   answerSection.removeEventListener('click', listener);
-                   questionCounter++;
-                   timer -= 10;
-                   mainGame();
-               }
+                if(e.target.className == "btn") {
+                    if(e.target.textContent == questions[0].answers.d) {
+                        rightWrong.innerHTML = "<h2>Correct!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        mainGame();
+                    } else {
+                        rightWrong.innerHTML = "<h2>False!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        timer -= 10;
+                        mainGame();
+                    }
+                }
+               
             });
             break;
         case 1: 
@@ -148,19 +153,22 @@ function mainGame() {
                     btnArr[i].textContent = questions[1].answers.c;
                 else 
                     btnArr[i].textContent = questions[1].answers.d;
+                btnArr[i].className = "btn"
             }
             answerSection.addEventListener('click', function listener(e) {
-                if(e.target.textContent == questions[1].answers.c) {
-                    rightWrong.innerHTML = "<h2>Correct!</h2>";
-                    answerSection.removeEventListener('click', listener);
-                    questionCounter++;
-                    mainGame();
-                } else {
-                    rightWrong.innerHTML = "<h2>False!</h2>";
-                    answerSection.removeEventListener('click', listener);
-                    questionCounter++;
-                    timer -= 10;
-                    mainGame();
+                if(e.target.className == "btn") {
+                    if(e.target.textContent == questions[1].answers.c) {
+                        rightWrong.innerHTML = "<h2>Correct!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        mainGame();
+                    } else {
+                        rightWrong.innerHTML = "<h2>False!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        timer -= 10;
+                        mainGame();
+                    }
                 }
             });
             break;
@@ -176,20 +184,25 @@ function mainGame() {
                     btnArr[i].textContent = questions[2].answers.c;
                 else 
                     btnArr[i].textContent = questions[2].answers.d;
+                
+                btnArr[i].className = "btn";
             }
             answerSection.addEventListener('click', function listener(e) {
-                if(e.target.textContent == questions[2].answers.b) {
-                    rightWrong.innerHTML = "<h2>Correct!</h2>";
-                    answerSection.removeEventListener('click', listener);
-                    questionCounter++;
-                    mainGame();
-                } else {
-                    rightWrong.innerHTML = "<h2>False!</h2>";
-                    answerSection.removeEventListener('click', listener);
-                    questionCounter++;
-                    timer -= 10;
-                    mainGame();
+                if(e.target.className == "btn") {
+                    if(e.target.textContent == questions[2].answers.b) {
+                        rightWrong.innerHTML = "<h2>Correct!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        mainGame();
+                    } else {
+                        rightWrong.innerHTML = "<h2>False!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        timer -= 10;
+                        mainGame();
+                    }
                 }
+                
             });
             break;
         case 3: 
@@ -204,20 +217,25 @@ function mainGame() {
                     btnArr[i].textContent = questions[3].answers.c;
                 else 
                     btnArr[i].textContent = questions[3].answers.d;
+
+                btnArr[i].className = "btn";
             }
             answerSection.addEventListener('click', function listener(e) {
-                if(e.target.textContent == questions[3].answers.a) {
-                    rightWrong.innerHTML = "<h2>Correct!</h2>";
-                    answerSection.removeEventListener('click', listener);
-                    questionCounter++;
-                    mainGame();
-                } else {
-                    rightWrong.innerHTML = "<h2>False!</h2>";
-                    answerSection.removeEventListener('click', listener);
-                    questionCounter++;
-                    timer -= 10;
-                    mainGame();
+                if(e.target.className == "btn") {
+                    if(e.target.textContent == questions[3].answers.a) {
+                        rightWrong.innerHTML = "<h2>Correct!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        mainGame();
+                    } else {
+                        rightWrong.innerHTML = "<h2>False!</h2>";
+                        answerSection.removeEventListener('click', listener);
+                        questionCounter++;
+                        timer -= 10;
+                        mainGame();
+                    }
                 }
+                
             });
             break;
             case 4:
@@ -232,19 +250,23 @@ function mainGame() {
                         btnArr[i].textContent = questions[4].answers.c;
                     else 
                         btnArr[i].textContent = questions[4].answers.d;
+
+                    btnArr[i].className = "btn";
                 }
                 answerSection.addEventListener('click', function listener(e) {
-                    if(e.target.textContent == questions[4].answers.d) {
-                        rightWrong.innerHTML = "<h2>Correct!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        mainGame();
-                    } else {
-                        rightWrong.innerHTML = "<h2>False!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        timer -= 10;
-                        mainGame();
+                    if(e.target.className == "btn") {
+                        if(e.target.textContent == questions[4].answers.d) {
+                            rightWrong.innerHTML = "<h2>Correct!</h2>";
+                            answerSection.removeEventListener('click', listener);
+                            questionCounter++;
+                            mainGame();
+                        } else {
+                            rightWrong.innerHTML = "<h2>False!</h2>";
+                            answerSection.removeEventListener('click', listener);
+                            questionCounter++;
+                            timer -= 10;
+                            mainGame();
+                        }
                     }
                 });
                 break;
