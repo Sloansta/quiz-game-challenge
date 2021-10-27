@@ -286,7 +286,11 @@ function saveToLocal() {
 
 function loadFromLocal() {
     let score = localStorage.getItem('score');
-    return score;
+
+    if(!score || score == null) 
+        alert("You do not have a score saved");
+    else 
+        return score;
 }
 
 function endGame() {
@@ -299,4 +303,15 @@ function endGame() {
         btnArr[i].remove();
         rightWrong.innerHTML = "";
     }
+
+    let saveButton = document.createElement("button");
+    saveButton.className = "save-btn";
+    saveButton.textContent = "Save your score!";
+
+    questionSection.appendChild(saveButton);
+
+    saveButton.addEventListener('click', () => {
+        saveToLocal();
+        saveButton.textContent = "Score Saved!";
+    });
 }
