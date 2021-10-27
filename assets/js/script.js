@@ -280,9 +280,23 @@ function mainGame() {
 
 // finish up adding the function that allows saving to local storage and also loading from local storage.
 
+function saveToLocal() {
+    localStorage.setItem('score', timer);
+}
+
+function loadFromLocal() {
+    let score = localStorage.getItem('score');
+    return score;
+}
+
 function endGame() {
     if(timer <= 0) 
         questionSection.innerHTML = "<h2>GAME OVER!</h2>";
     else 
         questionSection.innerHTML = "<h2>You completed the quiz with a score of " + timer + "! </h2>";
+    
+    for(let i = 0; i < btnArr.length; i++) {
+        btnArr[i].remove();
+        rightWrong.innerHTML = "";
+    }
 }
