@@ -305,6 +305,7 @@ function endGame() {
         rightWrong.innerHTML = "";
     }
 
+    let scoreSaved = false;
     let saveButton = document.createElement("button");
     saveButton.className = "save-btn";
     saveButton.textContent = "Save your score!";
@@ -312,7 +313,10 @@ function endGame() {
     questionSection.appendChild(saveButton);
 
     saveButton.addEventListener('click', () => {
-        saveToLocal();
-        saveButton.textContent = "Score Saved!";
+        if(!scoreSaved) {
+            saveToLocal();
+            saveButton.textContent = "Score Saved!";
+        }else
+            alert("You already saved your score. Please play again if you would like to set a different score.");
     });
 }
