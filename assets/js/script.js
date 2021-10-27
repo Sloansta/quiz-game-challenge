@@ -284,6 +284,7 @@ function saveToLocal() {
     localStorage.setItem('score', timer);
 }
 
+// work on getting this functional tomorrow
 function loadFromLocal() {
     let score = localStorage.getItem('score');
 
