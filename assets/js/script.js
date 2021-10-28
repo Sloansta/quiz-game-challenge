@@ -81,6 +81,8 @@ let questions = [
 if(gameStarted == false)
     document.getElementById("start-button").addEventListener('click', startGame);
 
+document.getElementById("load-score").addEventListener('click', loadFromLocal);
+
 function startGame() {
     gameStarted = true; 
     console.log('game has started');
@@ -291,7 +293,7 @@ function loadFromLocal() {
     if(!score || score == null) 
         alert("You do not have a score saved");
     else 
-        return score;
+        alert("Your current score is: " + score); // this is just filler code for now until I figure out what I want to do from here.
 }
 
 function endGame() {
