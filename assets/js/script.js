@@ -136,7 +136,8 @@ function mainGame() {
 // finish up adding the function that allows saving to local storage and also loading from local storage.
 
 function saveToLocal() {
-    localStorage.setItem('score', timer);
+    let initials = prompt("Please enter your initials");
+    localStorage.setItem('score', initials + "-" + timer);
 }
 
 
@@ -182,7 +183,7 @@ function loadFromLocal() {
     if(!score || score == null) 
         alert("You do not have a score saved");
     else 
-        alert("Your current score is: " + score); // this is just filler code for now until I figure out what I want to do from here.
+        alert("Your current score: " + score); // this is just filler code for now until I figure out what I want to do from here.
 }
 
 function endGame() {
