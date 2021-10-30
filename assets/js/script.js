@@ -111,23 +111,54 @@ function mainGame() {
     console.log(questionCounter);
     switch (questionCounter) {
         case 0:
-            questionSection.innerHTML = "<h2>" + questions[0].question + "</h2>";
+           askQuizQuestion(0, questions[0].answers.d);
+            break;
+        case 1: 
+            askQuizQuestion(1, questions[1].answers.c);
+            break;
+        case 2: 
+            askQuizQuestion(2, questions[2].answers.b);
+            break;
+        case 3: 
+            askQuizQuestion(3, questions[3].answers.a);
+            break;
+        case 4:
+            askQuizQuestion(4, questions[4].answers.d);
+            break;
+            
+    
+        default:
+            gameStarted = false;
+            break;
+    }
+}
+
+// finish up adding the function that allows saving to local storage and also loading from local storage.
+
+function saveToLocal() {
+    localStorage.setItem('score', timer);
+}
+
+
+// asking the question function 
+function askQuizQuestion(index, correctAnswer) {
+    questionSection.innerHTML = "<h2>" + questions[index].question + "</h2>";
             for(let i = 0; i < btnArr.length; i++) {
                 answerSection.appendChild(btnArr[i]);
                 if(i == 0)
-                    btnArr[i].textContent = questions[0].answers.a;
+                    btnArr[i].textContent = questions[index].answers.a;
                 else if(i == 1)
-                    btnArr[i].textContent = questions[0].answers.b;
+                    btnArr[i].textContent = questions[index].answers.b;
                 else if(i == 2)
-                    btnArr[i].textContent = questions[0].answers.c;
+                    btnArr[i].textContent = questions[index].answers.c;
                 else 
-                    btnArr[i].textContent = questions[0].answers.d;
+                    btnArr[i].textContent = questions[index].answers.d;
                 
                 btnArr[i].className = "btn";
             }
             answerSection.addEventListener('click', function listener(e) {
                 if(e.target.className == "btn") {
-                    if(e.target.textContent == questions[0].answers.d) {
+                    if(e.target.textContent == correctAnswer) {
                         rightWrong.innerHTML = "<h2>Correct!</h2>";
                         answerSection.removeEventListener('click', listener);
                         questionCounter++;
@@ -142,148 +173,6 @@ function mainGame() {
                 }
                
             });
-            break;
-        case 1: 
-            questionSection.innerHTML = "<h2>" + questions[1].question + "</h2>";
-            for(let i = 0; i < btnArr.length; i++) {
-                answerSection.appendChild(btnArr[i]);
-                if(i == 0)
-                    btnArr[i].textContent = questions[1].answers.a;
-                else if(i == 1)
-                    btnArr[i].textContent = questions[1].answers.b;
-                else if(i == 2)
-                    btnArr[i].textContent = questions[1].answers.c;
-                else 
-                    btnArr[i].textContent = questions[1].answers.d;
-                btnArr[i].className = "btn"
-            }
-            answerSection.addEventListener('click', function listener(e) {
-                if(e.target.className == "btn") {
-                    if(e.target.textContent == questions[1].answers.c) {
-                        rightWrong.innerHTML = "<h2>Correct!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        mainGame();
-                    } else {
-                        rightWrong.innerHTML = "<h2>False!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        timer -= 10;
-                        mainGame();
-                    }
-                }
-            });
-            break;
-        case 2: 
-            questionSection.innerHTML = "<h2>" + questions[2].question + "</h2>";
-            for(let i = 0; i < btnArr.length; i++) {
-                answerSection.appendChild(btnArr[i]);
-                if(i == 0)
-                    btnArr[i].textContent = questions[2].answers.a;
-                else if(i == 1)
-                    btnArr[i].textContent = questions[2].answers.b;
-                else if(i == 2)
-                    btnArr[i].textContent = questions[2].answers.c;
-                else 
-                    btnArr[i].textContent = questions[2].answers.d;
-                
-                btnArr[i].className = "btn";
-            }
-            answerSection.addEventListener('click', function listener(e) {
-                if(e.target.className == "btn") {
-                    if(e.target.textContent == questions[2].answers.b) {
-                        rightWrong.innerHTML = "<h2>Correct!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        mainGame();
-                    } else {
-                        rightWrong.innerHTML = "<h2>False!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        timer -= 10;
-                        mainGame();
-                    }
-                }
-                
-            });
-            break;
-        case 3: 
-            questionSection.innerHTML = "<h2>" + questions[3].question + "</h2>";
-            for(let i = 0; i < btnArr.length; i++) {
-                answerSection.appendChild(btnArr[i]);
-                if(i == 0)
-                    btnArr[i].textContent = questions[3].answers.a;
-                else if(i == 1)
-                    btnArr[i].textContent = questions[3].answers.b;
-                else if(i == 2)
-                    btnArr[i].textContent = questions[3].answers.c;
-                else 
-                    btnArr[i].textContent = questions[3].answers.d;
-
-                btnArr[i].className = "btn";
-            }
-            answerSection.addEventListener('click', function listener(e) {
-                if(e.target.className == "btn") {
-                    if(e.target.textContent == questions[3].answers.a) {
-                        rightWrong.innerHTML = "<h2>Correct!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        mainGame();
-                    } else {
-                        rightWrong.innerHTML = "<h2>False!</h2>";
-                        answerSection.removeEventListener('click', listener);
-                        questionCounter++;
-                        timer -= 10;
-                        mainGame();
-                    }
-                }
-                
-            });
-            break;
-            case 4:
-                questionSection.innerHTML = "<h2>" + questions[4].question + "</h2>";
-                for(let i = 0; i < btnArr.length; i++) {
-                    answerSection.appendChild(btnArr[i]);
-                    if(i == 0)
-                        btnArr[i].textContent = questions[4].answers.a;
-                    else if(i == 1)
-                        btnArr[i].textContent = questions[4].answers.b;
-                    else if(i == 2)
-                        btnArr[i].textContent = questions[4].answers.c;
-                    else 
-                        btnArr[i].textContent = questions[4].answers.d;
-
-                    btnArr[i].className = "btn";
-                }
-                answerSection.addEventListener('click', function listener(e) {
-                    if(e.target.className == "btn") {
-                        if(e.target.textContent == questions[4].answers.d) {
-                            rightWrong.innerHTML = "<h2>Correct!</h2>";
-                            answerSection.removeEventListener('click', listener);
-                            questionCounter++;
-                            mainGame();
-                        } else {
-                            rightWrong.innerHTML = "<h2>False!</h2>";
-                            answerSection.removeEventListener('click', listener);
-                            questionCounter++;
-                            timer -= 10;
-                            mainGame();
-                        }
-                    }
-                });
-                break;
-            
-    
-        default:
-            gameStarted = false;
-            break;
-    }
-}
-
-// finish up adding the function that allows saving to local storage and also loading from local storage.
-
-function saveToLocal() {
-    localStorage.setItem('score', timer);
 }
 
 // work on getting this functional tomorrow
